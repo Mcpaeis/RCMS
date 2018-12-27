@@ -1,0 +1,11 @@
+<?php 
+	require_once("config.php");
+	//require_once("functions.php");
+	require_once("DB.Class.php");
+	require_once("Registration.Class.php");
+	require_once("Login.Class.php");
+	require_once("Validate.Class.php");
+	require_once("Settings.Class.php");
+	require_once("Recommendations.Class.php");
+	require_once("Update.Class.php");
+?>

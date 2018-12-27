@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="../public/js/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+		<link href="main.css" rel="stylesheet"/>
+		<!--<link href="../public/css/bootstrap.min.css" rel="stylesheet"/> -->
+	</head>
+	<body class="main">
+		<div class="ui top fixed six item menu left-panel">
+			<a class="item settings">Settings</a>
+			<a class="item authorize-request-lo">Request LO</a>
+			<a class="item authorize-request-go">Request GO</a>
+			<a class="item signed-recommendations">View Issued</a>
+			<a class="item manage-authorized-request">Recommenders</a>
+			<div class="controls link item">
+				<div id="controls-logout" class="ui primary button">Logout</div>
+			</div>
+		</div>
+		<section class="right-panel">
+			<br /><br />
+			<div class="form-controls">
+				<div class="ui floating message form-controls-msg">
+				    <p></p>
+				</div>
+				<div id="txtDivAdd">
+					<form method="post" action="../public/php/create_recommender.php">
+						<div class="textInputs">
+							<table class="ui inverted celled striped table">
+								<thead>
+									<tr><th><div class="ui ribbon label">Add Recomender</div></th></tr>
+								</thead>
+								<tr>
+									<td>
+										<input type="text" class="text" name="txtAddFirstName" id="txtAddFirstName" placeholder="First Name">
+									</td>
+									<td>
+										<input type="text" class="text" name="txtAddLastName" id="txtAddLastName" placeholder="Last Name">
+									</td>
+									<td class="sorted ascending">
+										<input type="text" class="text" name="txtAddEmail" id="txtAddEmail" placeholder="Email">
+									</td>
+								</tr>
+							</table>														
+						</div>
+						<br /><br />
+						<div class="btnInputs">
+							<input class="submit" id="txtAddGeneratePassword" type="button" value="Generate Password"><br /><br />
+							<input type="hidden" name="txtAddPassword" id="txtAddPassword">
+							<input type="submit" class="submit" value="Add Recommender" id="txtAddSubmit">
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="form-controls-go">
+				<div class="ui floating message form-controls-go-msg">
+				    <p></p>
+				</div>
+				<div id="txtDivAddGO">
+					<form method="post" action="../public/php/create_admin.php">
+						<div class="textInputs">
+							<table class="ui inverted celled striped table">
+								<thead>
+									<tr><th><div class="ui ribbon label">Add Secretary</div></th></tr>
+								</thead>
+								<tr>
+									<td>
+										<input type="text" class="text" name="txtAddFirstName" id="txtAddFirstNameGO" placeholder="First Name">
+									</td>
+									<td>
+										<input type="text" class="text" name="txtAddLastName" id="txtAddLastNameGO" placeholder="Last Name">
+									</td>
+									<td>
+										<input type="text" class="text" name="txtAddEmail" id="txtAddEmailGO" placeholder="Email">
+									</td>
+								</tr>
+							</table>
+						</div>
+						<br /><br />
+						<div class="btnInputs">
+							<input class="submit" id="txtAddGeneratePasswordGO" type="button" value="Generate Password"><br /><br />
+							<input type="hidden" name="txtAddPassword" id="txtAddPasswordGO">
+							<input type="submit" class="submit" value="Add Secretary" id="txtAddSubmitGO">
+						</div>
+					</form>
+				</div>	
+			</div>
+			<div class="form-controls-settings">
+				<div class="ui floating message form-controls-catedit-msg">
+				    <p></p>
+				</div>
+				<table class="ui inverted sortable celled striped table">
+					<thead>
+						<tr><th><div class="ui ribbon label">Select Category to View and Edit Details</div></th></tr>
+					</thead>
+				</table>
+					<div class="categoryDetails">
+						<select id="categorySelect" class="select">
+							<option>Select</option>
+							<!-- read this data from the database -->
+							<option>Flat</option>
+							<option>Reducing Balance</option>
+						</select><br /><br />
+						<div class="displayDetails">
+							<div class="flatDetails">
+								<!--<div class="id">
+									<span>Category Name</span><span>Applicable Fee</span> <span>Amount Per Copy</span>
+									<select class="flatAction select">
+										<option selected>Action</option>
+										<option>Edit</option>
+										<option>Delete</option>
+									</select>
+								</div>-->
+								<table class="ui inverted celled striped table">
+									<thead>
+										<tr>
+											<th>Category Name</th>
+											<th>Applicable Fee</th>
+											<th></th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="reducingBalanceDetails">
+								<!--<span>Category Name</span><span>Applicable Fee</span> <span>Initial Limit</span>
+								<span>Amount Per Initial Limit</span><span>Amount Per Each Additional Copy</span>
+								<select class="RDAction select">
+									<option selected>Action</option>
+									<option>Edit</option>
+									<option>Delete</option>
+								</select>-->
+								<table class="ui inverted celled striped table">
+									<thead>
+										<tr>
+											<th>Category Name</th>
+											<th>Applicable Fee</th>
+											<th>Initial Limit</th>
+											<th>Amount Per Additional Copy</th>
+											<th></th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div><br /><br />
+						<!-- added this hidden input here to be used to set the ids -->
+						<input type="hidden" id="txtCatEdit" value="0">
+						<div class="displayEditDetails">
+							<div class="editFlat">
+								<form method="post" action="http://192.168.43.13/Mcpaeis/public/php/update_flat.php">
+									<table class="ui inverted celled striped table">
+										<tr>
+											<td><input type="text" class="text" name="txtCategoryNameEditF" id="txtCategoryNameEditF" placeholder="Category Name" /></td>
+											<td><select id="categoryChangeFlat" name="categoryChangeFlat" class="select">
+												<option>Flat</option>
+												<option>Reducing Balance</option>
+												<!-- depending on which is selected proceed -->
+											</select></td>
+										</tr>
+									</table>
+									<div class="CRD">
+										<table class="ui inverted celled striped table">
+											<tr>
+												<td><input type="text" class="text" name="txtInitialLimit" id="txtInitialLimitEditF" placeholder="Initial Limit"></td>
+												<td><input type="text" class="text" name="txtAmountPerInitialLimit" id="txtAmountPerInitialLimitEditF" placeholder="Amount per initial limit"></td>
+												<td><input type="text" class="text" name="txtAmountPerAdditionalCopy" id="txtAmountPerAdditionalCopyEditF" placeholder="Amount Per Additional Copy"></td>
+											</tr>
+										</table>
+									</div>
+									<div class="flatDefault">
+										<table class="ui inverted celled striped table">
+											<tr>
+												<td>
+													<input type="text" class="text" name="txtAmountPerCopyEditF" id="txtAmountPerCopyEditF" placeholder="Amount per copy">
+												</td>
+											</tr>
+										</table>
+									</div><br />
+									<div class="ui buttons">
+									    <button name="editFlat" id="updateFlat" class="ui positive button">Update</button>
+									    <div class="or"></div>
+									    <button class="ui button cancel">Cancel</button>
+									</div>
+								</form>
+							</div>
+							<div class="editReducingBalance">
+								<form method="post" action="#">
+									<table class="ui inverted celled striped table">
+										<tr>
+											<td>
+												<input type="text" class="text" name="txtCategoryName" id="txtCategoryNameEditRD" placeholder="Category Name" />
+											</td>
+											<td>
+												<select id="categoryChangeRD" class="select">
+													<option>Reducing Balance</option>
+													<option>Flat</option>
+													<!-- depending on which is selected proceed -->
+												</select>
+											</td>
+										</tr>
+									</table>
+									<div class="RDDefault">
+										<table class="ui inverted celled striped table">
+											<tr>
+												<td>
+													<input type="text" class="text" name="txtInitialLimit" id="txtInitialLimitEditRD" placeholder="Initial Limit">
+												</td>
+												<td>
+													<input type="text" class="text" name="txtAmountPerInitialLimit" id="txtAmountPerInitialLimitEditRD" placeholder="Amount per initial limit">
+												</td>
+												<td>
+													<input type="text" class="text" name="txtAmountPerAdditionalCopy" id="txtAmountPerAdditionalCopyEditRD" placeholder="Amount Per Additional Copy">
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="CFlat">
+										<table class="ui inverted celled striped table">
+											<tr>
+												<td>
+													<input type="text" class="text" name="txtAmountPerCopy" id="txtAmountPerCopyEditRD" placeholder="Amount per copy">
+												</td>
+											</tr>
+										</table>
+									</div><br />
+									<div class="ui buttons">
+									    <button name="editRD" id="updateRD" class="ui positive button">		Update
+									    </button>
+									    <div class="or"></div>
+									    <button class="ui button cancel">Cancel</button>
+									</div>
+									<!--<input type="submit" name="editRD" id="updateRD" class="submit" value="Update"> -->
+								</form>
+							</div>
+						</div>
+					</div><br /><br />
+					<div class="categoryAdd">
+						<table class="ui inverted celled striped table">
+							<thead>
+								<tr><th><div class="ui ribbon label">Add New Category</div></th></tr>
+							</thead>
+						</table><br /><br />
+						<form method="post" action="#">
+							<table class="ui inverted celled striped table">
+								<tr>
+									<td>
+										<input type="text" class="text" name="txtCategoryName" id="txtCategoryNameAdd" placeholder="Category Name">
+									</td>
+									<td>
+										<select id="categoryAddSelect" class="select">
+											<option selected>Select</option>
+											<option>Flat</option>
+											<option>Reducing Balance</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+							<div class="flatAdd">
+								<table class="ui inverted celled striped table">
+									<tr>
+										<td>
+											<input type="text" class="text" name="txtAmountPerCopy" id="txtAmountPerCopyAdd" placeholder="Amount per copy">
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="reducingBalanceAdd">
+								<table class="ui inverted celled striped table">
+									<tr>
+										<td>
+											<input type="text" class="text" name="txtInitialLimit" id="txtInitialLimitAdd" placeholder="Initial Limit">
+										</td>
+										<td>
+											<input type="text" class="text" name="txtAmountPerInitialLimit" id="txtAmountPerInitialLimitAdd" placeholder="Amount per initial limit">
+										</td>
+										<td>
+											<input type="text" class="text" name="txtAmountPerAdditionalCopy" id="txtAmountPerAdditionalCopyAdd" placeholder="Amount Per Additional Copy">
+										</td>
+									</tr>
+								</table>
+							</div><br />
+							<input type="submit" class="submit" id="addCategory" value="Add">
+						</form>
+					</div>
+			</div><br />
+			<div class="form-controls-signed">
+				<div class="form-controls-signed-prev">
+					<table class="ui inverted sortable celled striped table">
+						<thead>
+							<tr><th><div class="ui ribbon label">Issued Recommendations</div></th></tr>
+							<tr>
+								<th class="sorted ascending">Recommender</th>
+								<th>Requester Reference</th>
+								<th class="sorted ascending">Date</th>
+								<th>Number of Copies</th>
+								<th>Amount Paid</th>
+							</tr>
+						</thead>
+					</table>
+				</div><br />
+				<button class="ui primary button" id="print-control">Print</button>
+				<div class="print-format form-controls-signed-print">
+					<table class="ui table" id="pTable">
+						<thead>
+							<tr>
+								<th>
+									<div class="ui ribbon label">Issued Recommendations</div>
+								</th>
+							</tr>
+							<tr>
+								<td>
+									All: <input type="radio" style="font-size:20px" name="print-range" value="all" checked />
+									|
+									Custom: <input type="radio" name="print-range" value="custom" />
+								</td>
+								<td>
+									<div class="date-range">
+										<label>From:</label>
+										<input type="text" id="from" name="from">
+									</div>
+								</td>
+								<td>
+									<div class="date-range">	
+										<label>To:</label>
+										<input type="text" id="to" name="to">
+									</div>
+								</td>
+								<td><button class="date-range apply ui positive button">Apply</button></td>
+							</tr>
+							<br /><br />
+							<tr>
+								<th>Recommender</th>
+								<th>Requester Reference</th>
+								<th>Date</th>
+								<th>Copies</th>
+								<th>Amount Paid</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table><br />
+					<div class="ui buttons">
+					    <button name="print" id="print" class="ui positive button">Proceed</button>
+					    <div class="or"></div>
+					    <button class="ui button cancel">Cancel</button>
+					</div>
+				</div>
+			</div>
+			<div class="form-controls-manage">
+				<div class="ui floating message form-controls-managerec-msg">
+				    <p></p>
+				</div>
+				<div class="manage-default">
+					<table class="ui inverted sortable celled striped table">
+						<thead>
+							<tr><th><div class="ui ribbon label">Manage Recommenders</div></th></tr>
+							<tr>
+								<th class="sorted ascending">Recommender Name</th>
+								<th class="sorted ascending">Date Added</th>
+								<th>No. Signed</th>
+								<th>Status</th>
+								<th></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="manage-view">
+					<form method="post" action="#">
+						<input type="text" class="text" id="txtResendPassword" name="txtResendPassword" placeholder="Email Address" />
+						<div class="ui buttons">
+						    <button name="txtResendSubmit" id="txtResendSubmit" class="ui positive button">Send</button>
+						    <div class="or"></div>
+						    <button class="ui button cancel">Cancel</button>
+						</div>
+						<!--<input type="submit" class="submit" id="txtResendSubmit" name="txtResendSubmit" value="Send" />-->
+					</form>
+				</div>
+			</div>
+		</section>
+		<div class="connection-overlay"></div>
+		<div class="overlay-details">
+			<span>No Internet Connection Detected!</span><br /><br />
+			<span>Check Your Internet Connection.</span>
+		</div>
+		<div class="fab" title="Refresh"><img src="../public/images/refresh.png" alt="Refresh"> </div>
+		<div class="modal"><!-- Place at bottom of page --></div>
+	</body>
+	<!--<script src="../public/js/bootstrap.min.js"></script> -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script src="../public/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../public/js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<!--<script src="../main.js"></script> -->
+	<script src="main.js"></script>
+	<script src="../semantic/dist/semantic.min.js"></script>
+	<script src="../semantic/dist/sortable.js"></script>
+	<script>if (window.module) module = window.module;</script>
+</html>

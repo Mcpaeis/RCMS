@@ -1,0 +1,151 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	width: 100%;
+	background-color: #ccc;
+	color: white;
+	font: 2em Tahoma;
+	background: url(public/images/b4.jpg) no-repeat;
+	background-size: cover;
+}
+div.overlay{
+	background-color: black;
+	width: 100%;
+	opacity: 0.9;
+	background-size: cover;
+	min-height: 100%;
+}
+/* login status alert */
+.ui.message{
+	font: 0.5em Tahoma;
+}
+i.notched{
+	float: left;
+}
+div.content{
+	float left;
+}
+.form-controls{
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	margin-top: 12%;
+}
+.form-controls input {
+	height: 45px;
+	text-align: center;
+	margin: 15px;
+}
+.login{
+	padding: 50px;
+	width: 500px;
+	text-align: center;
+	margin-left: 30%;
+	background: #212121;
+	opacity: 0.9;
+}
+.register{
+	width: 500px;
+	text-align: center;
+	margin-left: 30%;
+	background: #212121;
+	opacity: 0.9;
+	display: inline-block;
+	margin-top:0px;
+}
+input.text{
+	width: 320px;
+	font: 0.7em Tahoma;
+	color: black;
+}
+input.submit{
+	width: 320px;
+	font: 0.7em Tahoma;
+	color: white;
+	background-color: black;
+	opacity: 0.9;
+}
+
+
+@media (max-width: 1200px) { 
+	.login{
+		width: 500px;
+		margin-left: 25%;
+	}
+	.form-controls{
+		margin-top: 15%;
+	}
+	.register{
+		margin-top: 0px;
+		margin-left: 25%;
+	}
+}
+@media (max-width: 992px) { 
+ 	.login{
+		width: 500px;
+		margin-left: 23%;
+	}
+	.form-controls{
+		margin-top: 10%;
+	}
+	.register{
+		margin-top: 0px;
+		margin-left: 23%;
+	}
+}
+@media (max-width: 768px) {
+ 	.login{
+		width: 500px;
+		margin-left: 15%;
+	}
+	.form-controls{
+		margin-top: 10%;
+	}
+	.register{
+		margin-top: 0px;
+		margin-left: 15%;
+	}
+}
+@media (max-width: 710px){
+	.login{
+		width: 500px;
+		margin-left: 12%;
+	}
+	.form-controls{
+		margin-top: 10%;
+	}
+	.register{
+		margin-top: 0px;
+		margin-left: 12%;
+	}
+}
+@media (max-width: 654px){
+	.login{
+		width: 500px;
+		margin-left: 9%;
+	}
+	.form-controls{
+		margin-top: 10%;
+	}
+	.register{
+		margin-top: 0px;
+		margin-left: 9%;
+	}
+}
+@media (max-width: 576px) {
+	.login{
+		width: 100%;
+		margin-left: 0px;
+		padding: 35px;
+	}
+	.form-controls{
+		margin-top: 10%;
+	}
+	.register{
+		margin-top: 0px;
+		width: 100%;
+		margin-left: 0px;
+	}
+}

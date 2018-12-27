@@ -1,0 +1,27 @@
+{
+	"name": "Mcpaeis",
+	"version": "1.0.0",
+	"description": "A Recommendation Management System for the Mathematics Department",
+	"main": "main.js",
+	"dependencies": {
+		"electron-online": "^1.0.0",
+		"jsstore": "^1.5.1",
+		"npm": "^5.7.1",
+		"semantic-ui": "^2.2.14"
+	},
+	"scripts": {
+		"pack": "build --dir"
+	},
+	"build": {
+		"appId": "com.recommendation.knustmath",
+		"productName": "Recommendation Management System"
+	},
+	"keywords": [
+		"Recommendation",
+		"Graduate",
+		"School",
+		"Application"
+	],
+	"author": "Sixtus Dakurah - SDT Inc.",
+	"license": "MIT"
+}

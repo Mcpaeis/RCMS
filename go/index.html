@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+		<link href="main.css" rel="stylesheet"/>
+		<!--<link href="../public/css/bootstrap.min.css" rel="stylesheet"/> -->
+	</head>
+	<body class="main">
+		<div class="ui top fixed six item menu left-panel left-panel">
+			<a class="item authorize-request">
+				<span>Request</span>
+			</a><br />
+			<a class="item sign-off">
+				<span>Issue Status</span>
+			</a><br />
+			<a class="item signed-recommendations">
+				<span>View Issued</span>
+			</a><br />
+			<a class="item manage-authorized-request">
+				<span>Manage Qued</span>
+			</a>
+			<div class="controls link item">
+				<div id="controls-logout" class="ui primary button">Logout</div>
+			</div>
+		</div>
+		<section class="right-panel"><br /><br />
+			<div class="form-controls">
+				<div class="ui floating message form-controls-msg">
+				    <p></p>
+				</div>
+				<table class="ui inverted celled striped table form-controls-table">
+					<thead>
+						<tr><th><div class="ui ribbon label">Manage Request</div></th></tr>
+						<tr>
+							<th>Authorization Id</th>
+							<th>Date Authorized</th>
+							<th>Requester Reference</th>
+							<th>Copies</th>
+							<th>Amount</th>
+							<th></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="form-controls-sign-off">
+				<div class="ui floating message form-controls-issue-msg">
+				    <p></p>
+				</div>
+				<table class="ui inverted celled striped table form-controls-issue-table">
+					<thead>
+						<tr><th><div class="ui ribbon label">Issue Recommendations</div></th></tr>
+						<tr>
+							<th>Recommender</th>
+							<th>Requester Reference</th>
+							<th>Date Requested</th>
+							<th>Copies</th>
+							<th></th>
+						</tr>
+					</thead>
+				</table>
+				<!--<span>Sign Off</span><br /> 
+				<span>Requester Reference</span>
+				<span>Number of Copies</span>
+				<span>Date</span>
+				<button class="btnSignOff">Mark as Issued</button>-->
+			</div><br />
+			<div class="form-controls-signed">
+				<table class="ui inverted celled striped table">
+					<thead>
+						<tr><th><div class="ui ribbon label">Issued Recommendations</div></th></tr>
+						<tr>
+							<th>Recommender</th>
+							<th>Requester Reference</th>
+							<th>Date Issued</th>
+							<th>Copies</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+				</table>
+				<!--<span>View Signed Recommendations</span><br /> 
+				<span>Authorisation Name</span>
+				<span>Requester Reference</span>
+				<span>Date </span>
+				<span>Number of Copies</span>
+				<span>Amount</span>--> 
+			</div>
+			<div class="form-controls-manage">
+				<div class="ui floating message form-controls-mng-msg">
+				    <p></p>
+				</div>
+				<div class="manage-default">
+					<table class="ui inverted celled striped table">
+					<thead>
+						<tr><th><div class="ui ribbon label">Manage Qued</div></th></tr>
+						<tr>
+							<th>Requester Reference</th>
+							<th>Date Qued</th>
+							<th>Copies</th>
+							<th></th>
+						</tr>
+					</thead>
+				</table>
+					<!--<span>Requester Reference</span>
+					<span>Date </span>
+					<span>Number of Copies</span>
+					<select id="manageAuthorisation">
+						<option selected>Action</option><br />
+						<option id="updateAuth">Delete</option>
+					</select> -->
+				</div>
+				<div class="manage-view">
+					<input type="text" class="text" id="txtRequesterReferenceUpdate" name="txtRequesterReference" placeholder="Requester Reference" />
+					<select class="select" id="txtNumberOfCopiesUpdate" name="txtNumberOfCopies">
+						<option selected>Copies</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>	
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+					</select>
+					<input type="submit" class="submit" id="txtAuthorizeRequestUpdate" name="txtAuthorizeRequest" value="Update Request" />
+				</div>
+			</div>
+		</section>
+		<div class="connection-overlay"></div>
+		<div class="overlay-details">
+			<span>No Internet Connection Detected!</span><br /><br />
+			<span>Check Your Internet Connection.</span>
+		</div>
+		<div class="fab" title="Refresh"><img src="../public/images/refresh.png" alt="Refresh"> </div>
+		<div class="modal"><!-- Place at bottom of page --></div>
+	</body>
+	<!--<script src="../public/js/bootstrap.min.js"></script> -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script src="../public/js/jquery.min.js"></script>
+	<!--<script src="../main.js"></script> -->
+	<script src="main.js"></script>
+	<script src="../semantic/dist/semantic.min.js"></script>
+	<script src="../semantic/dist/sortable.js"></script>
+	<script>if (window.module) module = window.module;</script>
+</html>

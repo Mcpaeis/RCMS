@@ -1,0 +1,302 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	width: 100%;
+	margin: 0px;
+	background-color: #9E9E9E; /*url("../public/images/b6.jpg") no-repeat;*/
+	background-size: cover;
+	color: white;
+	font: 1.2em Tahoma;
+}
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .modal {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+.fab {
+   width: 70px;
+   height: 70px;
+   background-color: red;
+   border-radius: 50%;
+   box-shadow: 0 6px 10px 0 #666;
+   transition: all 0.1s ease-in-out;
+ 
+   font-size: 50px;
+   color: white;
+   text-align: center;
+   line-height: 70px;
+ 
+   position: fixed;
+   right: 50px;
+   bottom: 50px;
+}
+ 
+.fab:hover {
+   box-shadow: 0 6px 14px 0 #666;
+   transform: scale(1.05);
+}
+.fab img{
+	width: 60px;
+	height: 60px;
+}
+.connection-overlay{
+	display: none;
+	opacity: 0.9;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: black;
+	width: 100%;
+	z-index: 10;
+}
+.overlay-details{
+	display: none;
+	text-align: center;
+	position: fixed;
+	border-radius: 7px;
+	z-index: 10;
+	width: 80%;
+	left: 10%;
+	top: 0;
+	top: 100px;
+	padding: 0.8em;
+	background-color: #FFF;
+}
+.overlay-details > span{
+	color: black;
+	font-weight: 1.2em Tahoma;
+}
+/*.controls{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.authorize-request{
+	height: 20px;
+	width: 85%;
+	background-color: green;
+	opacity: 0.5;
+	padding: 1em;
+}
+.sign-off{
+	height: 20px;
+	width: 85%;
+	background-color: green;
+	opacity: 0.5;
+	padding: 1em;
+}
+.signed-recommendations{
+	height: 20px;
+	width: 85%;
+	background-color: green;
+	opacity: 0.5;
+	padding: 1em;
+}
+.manage-authorized-request{
+	height: 20px;
+	width: 85%;
+	background-color: green;
+	opacity: 0.5;
+	padding: 1em;
+}*/
+/*section */
+.message{
+	display: none;
+}
+section{
+	background-color: transparent;
+	opacity: 0.9;
+	/*width: 74.4%;*/
+	width: 100%;
+	min-height:100%;
+	float: right;
+	padding: 1em;
+}
+.form-controls{
+	margin-top: 50px;
+	text-align: center;
+	color: black;
+}
+.form-controls select.select{
+	height: 40px;
+	width: 120px;
+	text-align: center;
+	font: 0.8em Tahoma;
+}
+.form-controls input.submit{
+	height: 30px;
+	width: 120px;
+	text-align: center;
+	font: 0.8em Tahoma;
+}
+.form-controls-sign-off{
+	margin-top: 50px;
+	text-align: center;
+	padding: 0em;
+	color: black;
+}
+.form-controls-signed select{
+	margin: 15px;
+	padding: 0.3em;
+	font: 0.9em Tahoma;
+}
+.form-controls-manage{
+	margin-top: 50px;
+	text-align: center;
+	padding: 0.3em;
+	color: black;
+}
+.form-controls-manage span{
+	margin: 15px;
+	padding: 0.3em;
+	background-color: lightgray;
+	display: inline-block;
+}
+.form-controls-manage select{
+	padding: 0.3em;
+	font: 0.8em Tahoma;
+}
+.manage-view input.text{
+	height: 50px;
+	width: 250px;
+	text-align: center;
+	font: 1em Tahoma;
+}
+.manage-view select.select{
+	height: 52px;
+	width: 100px;
+	text-align: center;
+	font: 0.8em Tahoma;
+}
+.manage-view input.submit{
+	height: 50px;
+	width: 200px;
+	text-align: center;
+	font: 0.9em Tahoma;
+}
+.btnSignOff{
+	height: 34px;
+	width: 150px;
+	text-align: center;
+	font: 0.9em Tahoma;
+}
+.form-controls-signed{
+	margin-top: 50px;
+	text-align: center;
+	padding: 0em;
+	color: black;
+}
+.form-controls-signed span{
+	margin: 15px;
+	padding: 0.3em;
+	background-color: lightgray;
+	font: 0.9em Tahoma;
+	display: inline-block;
+}
+/*
+.controls #image{
+	font: 3em Tahoma;
+	color: red;
+	height: 70px;
+	width: 70px;
+	background-color: lightgray;
+	border-radius: 350px 350px 350px 350px;
+	margin-left: 30%;
+}
+.controls #controls-logout{
+	margin-top: 5px;
+	padding: 0.6em;
+	height: 20px;
+	width: 100px;
+	background-color: lightgray;
+	margin-left: 20%;
+}
+
+@media (min-width: 1200px) { 
+	
+}
+@media (max-width: 992px) { 
+	section{
+		width: 72%;
+	}
+}
+@media (max-width: 768px) {
+ 	.authorize-request{
+		height: 20px;
+		width: 85%;
+		background-color: green;
+		opacity: 0.5;
+		padding: 0.3em;
+	}
+	.sign-off{
+		height: 20px;
+		width: 85%;
+		background-color: green;
+		opacity: 0.5;
+		padding: 0.3em;
+	}
+	.signed-recommendations{
+		height: 20px;
+		width: 85%;
+		background-color: green;
+		opacity: 0.5;
+		padding: 0.3em;
+	}
+	.manage-authorized-request{
+		height: 20px;
+		width: 85%;
+		background-color: green;
+		opacity: 0.5;
+		padding: 0.3em;
+	}
+	section{
+		width: 70%;
+	}
+	.controls #image{
+		font: 3em Tahoma;
+		color: red;
+		height: 70px;
+		width: 70px;
+		background-color: lightgray;
+		border-radius: 350px 350px 350px 350px;
+		margin-left: 20%;
+	}
+	.controls #controls-logout{
+		margin-top: 5px;
+		padding: 0.6em;
+		height: 20px;
+		width: 100px;
+		background-color: lightgray;
+		margin-left: 5%;
+	}
+}
+@media (max-width: 576px) {
+	
+}
+*/

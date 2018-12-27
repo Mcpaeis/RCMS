@@ -1,0 +1,6 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.recommendation.knustmath
+productName: Recommendation Management System
+electronVersion: 1.8.4

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+		<link href="main.css" rel="stylesheet"/>
+		<!--<link href="../public/css/bootstrap.min.css" rel="stylesheet"/> -->
+	</head>
+	<body class="main">
+		<div class="ui top fixed five item menu left-panel">
+			<a class="item authorize-request">
+				Authorize Request
+			</a>
+			<a class="item manage-authorized-request">
+				Manage Authorized
+			</a>
+			<a class="item sign-off">
+				Sign Recommendation
+			</a>
+			<a class="item signed-recommendations">
+				Signed Recommendations
+			</a>
+			<div class="controls link item">
+				<div id="controls-logout" class="ui primary button">Logout</div>
+			</div>
+		</div>
+		<section class="right-panel"><br /><br />
+			<div class="form-controls">
+				<div class="ui floating message form-controls-msg">
+				    <p></p>
+				</div>
+				<!--<span>Authorize Request</span><br /> -->
+				<form method="post" action="#" class="authorizeForm">
+					<div class="textInputs">
+						<table class="ui inverted celled striped table">
+							<thead>
+								<tr><th><div class="ui ribbon label">Authorize Request</div></th></tr>
+							</thead>
+							<tr>
+								<td>
+									<input type="text" class="text" id="txtRequesterReference" name="txtRequesterReference" placeholder="Requester Reference" />
+								</td>
+								<td>
+									<select class="select txtCategory" id="txtCategory" name="txtCategory">
+										<option selected>Category</option>
+										<!--<option>TA</option>
+										<option>General</option>
+										<option>Special</option> -->
+									</select>
+								</td>
+								<td>
+									<select class="select" id="txtNumberOfCopies" name="txtNumberOfCopies">
+										<option selected>Copies</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>	
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</div><br /><br />
+					<input type="submit" class="submit" id="txtAuthorizeRequest" name="txtAuthorizeRequest" value="Authorize Request" />
+				</form>
+			</div>
+			<div class="form-controls-sign-off">
+				<div class="ui floating message form-controls-sign-msg">
+				    <p></p>
+				</div>
+				<table class="ui inverted sortable celled striped table">
+					<thead>
+						<tr><th><div class="ui ribbon label">Sign Recommendations</div></th></tr>
+						<tr>
+							<th class="sorted ascending">Requester Reference</th>
+							<th>Copies</th>
+							<th class="sorted ascending">Date</th>
+							<th></th>
+						</tr>
+					</thead>
+				</table>
+			</div><br />
+			<div class="form-controls-signed">
+				<table class="ui inverted sortable celled striped table">
+					<thead>
+						<tr><th><div class="ui ribbon label">Signed Recommendations</div></th></tr>
+						<tr>
+							<th class="sorted ascending">Requester Reference</th>
+							<th class="sorted ascending">Date</th>
+							<th>Copies</th>
+							<th>Amount Paid</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="form-controls-manage">
+				<div class="ui floating message form-controls-managerec-msg">
+				    <p></p>
+				</div>
+				<div class="manage-default">
+					<table class="ui inverted sortable celled striped table">
+						<thead>
+							<tr><th><div class="ui ribbon label">Manage Recommenders</div></th></tr>
+							<tr>
+							<tr>
+								<th>Requester Reference</th>
+								<th>Date</th>
+								<th>Copies</th>
+								<th></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="manage-view">
+					<table class="ui inverted sortable celled striped table">
+						<thead>
+							<tr><th><div class="ui ribbon label">Update Request</div></th></tr>
+						</thead>
+						<tr>
+							<td>
+								<input type="text" class="text" id="txtRequesterReferenceUpdate" name="txtRequesterReference" placeholder="Requester Reference" />
+							</td>
+							<td>
+								<select class="select txtCategory" id="txtCategoryUpdate" name="txtCategory">
+									<option selected>Category</option>
+									<!--<option>TA</option>
+									<option>General</option>
+									<option>Special</option> -->
+								</select>
+							</td>
+							<td>
+								<select class="select" id="txtNumberOfCopiesUpdate" name="txtNumberOfCopies">
+									<option selected>Copies</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>	
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+					<div class="ui buttons">
+					    <button name="txtAuthorizeRequest" id="txtAuthorizeRequestUpdate" class="submit ui positive button">Update</button>
+					    <div class="or"></div>
+					    <button class="ui button cancel">Cancel</button>
+					</div>
+					<!--<input type="submit" class="submit" id="txtAuthorizeRequestUpdate" name="txtAuthorizeRequest" value="Update Request" /> -->
+				</div>
+			</div>
+		</section>
+		<div class="connection-overlay"></div>
+		<div class="overlay-details">
+			<span>No Internet Connection Detected!</span><br /><br />
+			<span>Check Your Internet Connection.</span>
+		</div>
+		<div class="fab" title="Refresh"><img src="../public/images/refresh.png" alt="Refresh"> </div>
+		<div class="modal"><!-- Place at bottom of page --></div>
+	</body>
+	<!--<script src="../public/js/bootstrap.min.js"></script> -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<script src="../public/js/jquery.min.js"></script>
+	<!--<script src="../main.js"></script> -->
+	<script src="main.js"></script>
+	<script src="../semantic/dist/semantic.min.js"></script>
+	<script src="../semantic/dist/sortable.js"></script>
+	<script>if (window.module) module = window.module;</script>
+</html>

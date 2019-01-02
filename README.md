@@ -1,2 +1,2 @@
 # RCMS
-A School Recommendation Management System
+A School Recommendation Management Desktop Application
